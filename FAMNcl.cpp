@@ -38,4 +38,16 @@ string FAMNcl::get_surname()
 	return surname;
 }
 
+void FAMNcl::fill()
+{
+	
+	int phone[mxp];
+	cout << "Phone(" << mxp << " numbers): ";
+	for (int i = 0; i < mxp; i++)
+		cin >> phone[i];
+	cout << "surname: ";
+	cin >> surname;
+	
+}
+
 

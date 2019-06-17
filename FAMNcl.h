@@ -23,14 +23,7 @@ public:
 	string get_surname();
 	
 	//зчитувати з клави
-	void fill() {
-		int phone[mxp];
-		cout << "Phone("<<mxp<<" numbers): ";
-		for (int i = 0; i < mxp; i++)
-			cin >> phone[i];
-		cout << "surname: ";
-		cin >> surname;
-	}
+	void fill();
 
 };
 
