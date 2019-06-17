@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOPL7task2", "OOPL7task2.vcxproj", "{4EE0260C-9BDC-45F2-8550-92BB7D81BB4B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{33CAB5B8-0293-4D26-9420-3EB5BA5645E7}"
+	ProjectSection(SolutionItems) = preProject
+		task.txt = task.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
