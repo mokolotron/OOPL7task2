@@ -43,6 +43,12 @@ void FiCo::fill()
 	file.close();
 }
 
+void FiCo::clear()
+{
+	file.open(filename, ios::out|ios::trunc);
+	file.close();
+}
+
 void FiCo::read()
 {
 	file.open(filename, ios::in);

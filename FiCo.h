@@ -19,6 +19,7 @@ public:
 	FiCo();
 	FiCo(string _filename);
 	void fill();
+	void clear();
 
 	void read();
 	int search(string surname);
