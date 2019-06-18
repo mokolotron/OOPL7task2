@@ -8,11 +8,6 @@ bool FiCo::check(fstream & _file)
 		return false;
 }
 
-void FiCo::write(FAMNcl obj)
-{
-	file  << obj.get_surname() << ' ' << obj.get_phone() <<endl;
-}
-
 FiCo::FiCo()
 {
 	filename = "undefinedFN";
@@ -33,9 +28,17 @@ FiCo::FiCo(string _filename)
 void FiCo::fill()
 {
 	file.open(filename, ios::out | ios::app);
-	obj.fill();
 	if (check(file)) {
-		write(obj);
+		cout << " to extit: esc" << endl;
+		while(true){
+			if (_getch() == 27)
+				break;
+			obj.fill();
+			file << obj.get_surname() << ' ';
+			for(int i = 0 ; i < mxp; i++)
+				file << obj.get_phone()+i;
+			file << endl;
+		}
 	}
 	file.close();
 }
@@ -56,11 +59,15 @@ void FiCo::read()
 
 int FiCo::search(string _surname)
 {
+	int seek = 0;
 	file.open(filename, ios::in);
 	if (check(file)) {
 		string word;
+		
 		while (file >> word) {
 			if (_surname == word) {
+				seek = file.tellg();
+				seek -= word.length();
 				cout << word << ' ';
 				file >> word;
 				cout << word<< endl;
@@ -68,4 +75,40 @@ int FiCo::search(string _surname)
 		}
 	}
 	file.close();
+	return seek;
+}
+
+void FiCo::redact(int position)
+{
+	fstream nfile("new.txt", ios::out|ios::trunc);
+	obj.fill();
+	string buf;
+	file.open(filename, ios::out|ios::in);
+	if (check(file)) {
+				
+	while (file.tellg() < position) {
+		file >> buf;
+		nfile << buf<< ' ';
+		file >> buf;
+		nfile << buf << endl;
+		}
+		
+		nfile.seekp(position);
+		nfile << obj.get_surname() << ' ';
+		for (int i = 0; i < mxp; i++)
+			nfile << *(&obj.get_phone() + i);
+		nfile << endl;
+
+		while (file >> buf) {
+			nfile << buf << ' ';
+			file >> buf;
+			nfile << buf << endl;
+		}
+		
+		file.close();
+		nfile.close();
+		remove(filename.c_str());
+		rename("new.txt", filename.c_str());
+	}
+	
 }

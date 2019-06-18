@@ -132,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FAMNcl.h" />
-    <ClInclude Include="famnstruct.h" />
     <ClInclude Include="FiCo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

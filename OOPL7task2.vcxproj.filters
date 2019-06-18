@@ -34,9 +34,6 @@
     <ClInclude Include="FAMNcl.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="famnstruct.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="FiCo.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

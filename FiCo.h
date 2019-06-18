@@ -1,6 +1,10 @@
 #pragma once
 #include "FAMNcl.h"
 #include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <conio.h>
+
 using namespace std;
 class FiCo
 {
@@ -9,7 +13,7 @@ class FiCo
 	fstream file;
 
 	bool check(fstream & _file);
-	void write(FAMNcl obj);
+	
 	
 public:
 	FiCo();
@@ -18,5 +22,7 @@ public:
 
 	void read();
 	int search(string surname);
+
+	void redact(int position);
 };
 

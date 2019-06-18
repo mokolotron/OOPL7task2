@@ -10,6 +10,35 @@ void FAMNcl::copy(const int* from, int* in)
 		cout << "some error" << endl;
 	}
 }
+void FAMNcl::fill_phon()
+{
+	string tnumber;
+
+	cout << "Phone(" << mxp << " numbers): ";
+	cin >> tnumber;
+	int k = 0;
+	if (tnumber.length() == mxp)
+		for (int i = 0; i < tnumber.length(); i++)
+			if (isdigit(tnumber[i]))
+				try {
+				ph_number[i] = tnumber[i] - 48;
+				k++;
+			}
+	catch (exception& e) {
+		cout << e.what() << endl;
+		cin.clear();
+		cin.ignore(10000, '\n');
+		fill_phon();
+	}
+
+	if (k != mxp) {
+		cout << "Uncorrect number" << endl;
+		cin.clear();
+		cin.ignore(10000, '\n');
+		fill_phon();
+	}
+
+}
 FAMNcl::FAMNcl()
 {
 	ph_number[0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -18,19 +47,18 @@ FAMNcl::FAMNcl()
 
 FAMNcl::FAMNcl(int * phone, string sname)
 {
-	copy(phone, ph_number);
-	surname = sname;
+		surname = sname;
 }
 
 FAMNcl::FAMNcl(const FAMNcl& obj)
 {
-	copy(obj.ph_number, ph_number);
+	
 	surname = obj.surname;
 }
 
 int & FAMNcl::get_phone()
 {
-	return * ph_number;
+	return  * ph_number;
 }
 
 string FAMNcl::get_surname()
@@ -41,13 +69,11 @@ string FAMNcl::get_surname()
 void FAMNcl::fill()
 {
 	
-	int phone[mxp];
-	cout << "Phone(" << mxp << " numbers): ";
-	for (int i = 0; i < mxp; i++)
-		cin >> phone[i];
+
+	fill_phon();
+
 	cout << "surname: ";
 	cin >> surname;
-	
 }
 
 

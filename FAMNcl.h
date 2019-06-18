@@ -1,11 +1,8 @@
 #pragma once
-
 #include <iostream>
 #include <string>
-
-
 using namespace std;
-#define mxp 9
+#define mxp 9 //phon lenght
 
 
 class FAMNcl
@@ -14,6 +11,7 @@ class FAMNcl
 	string surname;
 
 	void copy(const int * from, int * in);
+	void fill_phon();
 public:
 	FAMNcl();
 	FAMNcl(int * phone, string sname);
@@ -22,7 +20,6 @@ public:
 	int & get_phone();
 	string get_surname();
 	
-	//зчитувати з клави
 	void fill();
 
 };
